@@ -130,7 +130,7 @@ Name|Type|Description
 ---|---|---
 q|string|検索文字列を指定します。template名、キーワードが対象となります。
 sort|string|id/format_id/name/keywords/created_atを指定できます。<br>Default:id.
-direction|string|項目の並び順を指定します。asc/desc<br>Default: desc
+direction|string|項目の並び順を指定します。asc(昇順)/desc(降順)<br>Default: desc
 per_page|number|1ページあたりの取得項目数。最大:50件<br>Default: 10.
 page|number|ページ番号を指定。<br>Default: 1.
 including_private|string|非公開のテンプレートを含めるかどうかを指定します。<br>true or falseを設定します。<br>Default: false.
@@ -155,10 +155,10 @@ status: 200 OK
     {
       "id": 3,
       "display_id": "TF000003",
-      "name": "FF1-00024-FMT01(1).pdf",
+      "name": "FF1-00024-FMT01.pdf",
       "keywords": "",
-      "thumb":{"small": "http://192.168.99.100:3000//uploads/template/file/3/thumb.jpg", "large": "http://192.168.99.100:3000//uploads/template/file/3/variable_setting.jpg"…},
-      "pdf": "http://192.168.99.100:3000//uploads/template/file/3/FF1-00024-FMT01.pdf",
+      "thumb":{"small": "http://codenberg.io/uploads/template/file/3/thumb.jpg", "large": "http://codenberg.io/uploads/template/file/3/variable_setting.jpg"…},
+      "pdf": "http://codenberg.io/uploads/template/file/3/FF1-00024-FMT01.pdf",
       "page_count": 1,
       "lot_price":[
         {
@@ -291,7 +291,7 @@ status: 200 OK
       "custom_fields":[
         {
           "id": 4,
-          "name": "名称未設定0",
+          "name": "MyCustomFiled",
           "field_type": "text",
           "default_value": "IPAゴシック",
           "height": 169.044,
@@ -310,7 +310,7 @@ status: 200 OK
         },
         {
           "id": 5,
-          "name": "名称未設定1",
+          "name": "MyCustomFiled",
           "field_type": "text",
           "default_value": "ラウンディド",
           "height": 105.681,
@@ -329,9 +329,9 @@ status: 200 OK
         },
         {
           "id": 6,
-          "name": "名称未設定2",
+          "name": "MyCustomFiled",
           "field_type": "text",
-          "default_value": "名称未設定2テキスト",
+          "default_value": "MyValue",
           "height": 249.678,
           "rotate": 0,
           "width": 633.226,
@@ -348,7 +348,7 @@ status: 200 OK
         },
         {
           "id": 7,
-          "name": "名称未設定3",
+          "name": "MyCustomFiled",
           "field_type": "image",
           "default_value": "",
           "height": 234.799,
@@ -477,7 +477,7 @@ status: 200 OK
     "custom_fields": [
         {
             "id": 4,
-            "name": "名称未設定0",
+            "name": "MyCustomFiled",
             "field_type": "text",
             "default_value": "IPAゴシック",
             "height": 169.044,
@@ -496,9 +496,9 @@ status: 200 OK
         },
         {
             "id": 5,
-            "name": "名称未設定1",
+            "name": "MyCustomFiled",
             "field_type": "text",
-            "default_value": "名称未設定1",
+            "default_value": "MyValue",
             "height": 105.681,
             "rotate": 0,
             "width": 544.901,
@@ -515,9 +515,9 @@ status: 200 OK
         },
         {
             "id": 6,
-            "name": "名称未設定2",
+            "name": "MyCustomFiled",
             "field_type": "text",
-            "default_value": "名称未設定2",
+            "default_value": "MyValue",
             "height": 249.678,
             "rotate": 0,
             "width": 633.226,
@@ -534,7 +534,7 @@ status: 200 OK
         },
         {
             "id": 7,
-            "name": "名称未設定3",
+            "name": "MyCustomFiled",
             "field_type": "image",
             "default_value": "",
             "height": 234.799,
@@ -684,16 +684,14 @@ status: 200 OK
             ],
             "coart": "表のみ",
             "varnish": "表のみ",
-            "embossing": true,
-            "die_stamping": true,
             "purpose": [
                 "ポスター"
             ],
             "pattern_no": null,
             "per_sheet": 1,
             "note": null,
-            "file": "http://192.168.99.100:3000/uploads/format/file/48/FF1-00024-FMT01.ai",
-            "main_image": "http://192.168.99.100:3000/uploads/format/main_image/48/aa453fca-4244-443b-a082-5fbecf530996.png",
+            "file": "http://codenberg.io/uploads/format/file/48/FF1-00024-FMT01.ai",
+            "main_image": "http://codenberg.io/uploads/format/main_image/48/aa453fca-4244-443b-a082-5fbecf530996.png",
             "selectable_papers": [
                 {
                     "id": 1,
@@ -914,16 +912,14 @@ status: 200 OK
     ],
     "coart": "表のみ",
     "varnish": "表のみ",
-    "embossing": true,
-    "die_stamping": true,
     "purpose": [
         "ポスター"
     ],
     "pattern_no": null,
     "per_sheet": 1,
     "note": null,
-    "file": "http://192.168.99.100:3000/uploads/format/file/48/FF1-00024-FMT01.ai",
-    "main_image": "http://192.168.99.100:3000/uploads/format/main_image/48/aa453fca-4244-443b-a082-5fbecf530996.png",
+    "file": "http://codenberg.io/uploads/format/file/48/FF1-00024-FMT01.ai",
+    "main_image": "http://codenberg.io/uploads/format/main_image/48/aa453fca-4244-443b-a082-5fbecf530996.png",
     "selectable_papers": [
         {
             "id": 1,
@@ -1026,7 +1022,7 @@ status: 200 OK
                 {
                     "id": 14,
                     "display_id": "00000014",
-                    "name": "木村 俊範",
+                    "name": "金曜 武士",
                     "pref": {
                         "id": 13,
                         "name": "東京都"
@@ -1276,11 +1272,11 @@ JSON形式で送信してください。
 |city|string|市区町村。|
 |address_line1|string|番地。|
 |address_line2|string|建物名。<br>(optional)|
-|organization|string|会社名。<br>(optional)|
+|organization|string|組織名。<br>(optional)|
 |name|string|宛名|
 |tel|string|連絡先電話番号|
 |order_number|number|配送数<br>Default: 1|
-|custom_fields|Arr|可変領域を指定します。
+|custom_fields|array|可変領域を指定します。|
 |custom_fields.id|number|カスタムフィールドID|
 |custom_fields.value|string|設定値。テキスト or 画像ID|
 
@@ -1410,20 +1406,21 @@ JSON形式で送信してください。
 | ------------- | ------------ | ------------- |
 | template_id | number  | テンプレートidを指定します。 |
 | confirmation | string |true or false。trueを設定すると実際の登録はおこなわれません。|
-| is_samedestination | | boolean |true or false。同一の宛先に送付する場合に、trueを設定すると可能な限り同一に梱包されます。|
-| orders | Arr | |
-| postal_code | string  | 郵便番号。 |
-| pref | string  | 都道府県名。 |
-| city | string  | 市区町村。 |
-| address_line1 | string  | 番地。 |
-| address_line2 | string  | 建物名。<br>(optional) |
-| organization | string  |指定すると指定した日付以前の項目を抽出します。<br>(optional) <br>//organizationは組織ではないでしょうか？Descriptionが間違ってませんか？(木原)|
-| name | string  | 宛名 |
-| tel | string  | 連絡先電話番号 |
-| order_number | 	number  | 配送数<br>Default: 1 |
-| custom_fields | Arr | 可変領域を指定します。 |
-| custom_fields.id | string | カスタムフィールドID |
-| custom_fields.value | string |設定値。テキスト or 画像ID |
+| is_samedestination | boolean |true or false。同一の宛先に送付する場合に、trueを設定すると可能な限り同一に梱包されます。|
+| orders | array | 複数の注文を配列で指定します。
+| orders.postal_code | string  | 郵便番号。 |
+| orders.pref | string  | 都道府県名。 |
+| orders.city | string  | 市区町村。 |
+| orders.address_line1 | string  | 番地。 |
+| orders.address_line2 | string  | 建物名。<br>(optional) |
+| orders.organizaƒtion | string  | 組織名。<br>(optional)|
+| orders.name | string  | 宛名 |
+| orders.tel | string  | 連絡先電話番号 |
+| orders.order_number |        number  | 配送数<br>Default: 1 |
+| orders.custom_fields | array | 可変領域を指定します。 |
+| orders.custom_fields.id | string | カスタムフィールドID |
+| orders.custom_fields.value | string |設定値。テキスト or 画像ID |
+
 
 
 <例>  
@@ -1715,7 +1712,7 @@ status: 200 OK
         {
             "id": 7,
             "name": "test08.tif",
-            "file": "http://192.168.99.100:3000/uploads/medium/file/7/f1bad6bb-43c0-45ed-8360-b939358ba3f9.tif",
+            "file": "http://codenberg.io/uploads/medium/file/7/f1bad6bb-43c0-45ed-8360-b939358ba3f9.tif",
             "thumb": {
                 "default": "http://codenberg.io/uploads/medium/file/7/thumb_f1bad6bb-43c0-45ed-8360-b939358ba3f9.tif",
                 "square": "http://codenberg.io/uploads/medium/file/7/thumb_square_f1bad6bb-43c0-45ed-8360-b939358ba3f9.tif"
