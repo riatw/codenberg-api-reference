@@ -1413,7 +1413,7 @@ JSON形式で送信してください。
 | orders.city | string  | 市区町村。 |
 | orders.address_line1 | string  | 番地。 |
 | orders.address_line2 | string  | 建物名。<br>(optional) |
-| orders.organizaƒtion | string  | 組織名。<br>(optional)|
+| orders.organization | string  | 組織名。<br>(optional)|
 | orders.name | string  | 宛名 |
 | orders.tel | string  | 連絡先電話番号 |
 | orders.order_number |        number  | 配送数<br>Default: 1 |
