@@ -633,7 +633,7 @@ GET /formats
 
 Name|Type|Description
 ---|---|---
-q|string|検索文字列。format名、目的から検索できます。
+q|string|検索文字列。format名、用途から検索できます。
 sort|string| id/name<br>Default:id
 direction|string|項目の並び順を指定します。asc(昇順)/desc(降順)<br>Default: desc
 per_page|number|1ページあたりの取得項目数。最大:50件<br>Default: 10
