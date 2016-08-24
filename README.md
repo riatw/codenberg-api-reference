@@ -1274,7 +1274,7 @@ JSON形式で送信してください。
 |organization|string|組織名。<br>(optional)|
 |name|string|宛名|
 |tel|string|連絡先電話番号|
-|order_number|number|配送数<br>Default: 1|
+|order_number|number|印刷部数<br>Default: 1|
 |custom_fields|array|可変領域を指定します。|
 |custom_fields.id|number|カスタムフィールドID|
 |custom_fields.value|string|設定値。テキスト or 画像ID|
