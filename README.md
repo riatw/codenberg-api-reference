@@ -1274,7 +1274,6 @@ JSON形式で送信してください。
 |organization|string|組織名。<br>(optional)|
 |name|string|宛名|
 |tel|string|連絡先電話番号|
-|order_number|number|印刷部数<br>Default: 1|
 |custom_fields|array|可変領域を指定します。|
 |custom_fields.id|number|カスタムフィールドID|
 |custom_fields.value|string|設定値。テキスト or 画像ID|
@@ -1283,37 +1282,38 @@ JSON形式で送信してください。
 Content-type: application/json
 
 ```json
-{
-  "template_id": "1",
-  "confirmation":"false",
-  "name":"金曜武士",
-  "postal_code": "1080074",
-  "pref": 13,
-  "city": "港区",
-  "address_line1": "高輪3-25-29",
-  "address_line2": "The Site #07",
-  "organization": "株式会社フライデーナイト",
-  "tel": "0364557650",
-  "order_number": 1,
-  "custom_fields": [
-    {
-      "id": 4,
-      "value":"テキストカスタムフィールド1"
-    },
-    {
-      "id": 5,
-      "value":"テキストカスタムフィールド2"
-    },
-    {
-      "id": 6,
-      "value":"テキストカスタムフィールド3"
-    },
-    {
-      "id": 7,
-      "value": 2
-    }
-  ]
-}
+orders[
+	{
+		"template_id": "1",
+		"confirmation":"false",
+		"name":"金曜 武士",
+		"postal_code": "1080074",
+		"pref": 13,
+		"city": "港区",
+		"address_line1": "高輪3-25-29",
+		"address_line2": "The Site #07",
+		"organization": "株式会社フライデーナイト",
+		"tel": "0364557650",
+		"custom_fields": [
+			{
+			"id": 4,
+			"value":"テキストカスタムフィールド1"
+			},
+			{
+			"id": 5,
+			"value":"テキストカスタムフィールド2"
+			},
+			{
+			"id": 6,
+			"value":"テキストカスタムフィールド3"
+			},
+			{
+			"id": 7,
+			"value": 2
+			}
+		]
+	}
+]
 ```
 
 #### Response
