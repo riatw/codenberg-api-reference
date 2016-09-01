@@ -1264,21 +1264,21 @@ POST /v1/orders
 JSON形式で送信してください。
 
 
-|Name|Type|Description|
-|---|---|---|
-|template_id|number| テンプレートidを指定します。|
-|confirmation|string| true or false。trueを設定すると実際の登録はおこなわれません。|
-|postal_code|number|郵便番号。|
-|pref|string|都道府県名。|
-|city|string|市区町村。|
-|address_line1|string|番地。|
-|address_line2|string|建物名。<br>(optional)|
-|organization|string|組織名。<br>(optional)|
-|name|string|宛名|
-|tel|string|連絡先電話番号|
-|custom_fields|array|可変領域を指定します。|
-|custom_fields.id|number|カスタムフィールドID|
-|custom_fields.value|string|設定値。テキスト or 画像ID|
+|Name|Type|Require|Description|
+|---|---|---|---|
+|template_id|number|◯| テンプレートidを指定します。|
+|confirmation|string|◯| true or false。trueを設定すると実際の登録はおこなわれません。|
+|postal_code|number|◯|郵便番号。|
+|pref|string|◯|都道府県名。|
+|city|string|◯|市区町村。|
+|address_line1|string|◯|番地。|
+|address_line2|string||建物名。<br>(optional)|
+|organization|string||組織名。<br>(optional)|
+|name|string|◯|宛名|
+|tel|string|◯|連絡先電話番号|
+|custom_fields|array|可変領域が設定されている時、必須|可変領域を指定します。|
+|custom_fields.id|number||カスタムフィールドID|
+|custom_fields.value|string||設定値。テキスト or 画像ID|
 
 <例>
 Content-type: application/json
