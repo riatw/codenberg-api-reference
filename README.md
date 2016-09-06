@@ -1284,7 +1284,6 @@ JSON形式で送信してください。
 Content-type: application/json
 
 ```json
-orders[
 	{
 		"template_id": "1",
 		"confirmation":"false",
@@ -1315,7 +1314,6 @@ orders[
 			}
 		]
 	}
-]
 ```
 
 #### Response
