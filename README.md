@@ -80,7 +80,7 @@ APIキーとシークレットキーはコーデンベルク管理画面から�
 Basic認証形式でアクセストークンを取得します。
 
 ```
-POST /v1/auth/token
+GET /v1/auth/token
 ```
 
 #### Parameters
