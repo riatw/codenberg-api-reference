@@ -85,8 +85,19 @@ GET /v1/auth/token
 
 #### Parameters
 
+`APIキー`と`シークレットキー`を`:(コロン)`で連結した文字列をBase64エンコードして利用します。
 ```
-Authorization: Basic <base64エンコードされた APIキー:シークレットキー>
+Authorization: Basic <'APIキー' + ':' + 'シークレットキー'と連結した文字列をBase64エンコードした値>
+```
+
+#### Sample code
+
+```sh
+#!/bin/sh
+APIKEY='xxxxx'　#APIキー
+SECRET='yyyyy'　#シークレットキー
+ENCODED=`echo ${APIKEY}:${SECRET} | base64`
+curl https://api.codenberg.io/v1/auth/token -H "Authorization: Basic ${ENCODED}"
 ```
 
 #### Response
