@@ -110,6 +110,20 @@ curl https://api.codenberg.io/v1/auth/token -H "Authorization: Basic ${ENCODED}"
 }
 ```
 
+### 通常アクセス
+
+Authorization headerにアクセストークンを含めてアクセスします。
+
+```
+curl -H "Authorization: BEARER <OAUTH-TOKEN>" https://api.codenberg.io/v1/templates
+```
+
+以下のようにquery paramsに含めてアクセスすることもできます。
+
+```
+GET https://api.codenberg.io/v1/templates?access_token=<OAUTH-TOKEN>
+```
+
 ## テンプレート
 
 APIからテンプレートの情報取得を行えます。
