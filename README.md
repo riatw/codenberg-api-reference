@@ -95,7 +95,7 @@ Authorization: Basic <base64エンコードされた APIキー:シークレッ�
 {
     "token_type": "bearer",
     "access_token": "2f9af46b0212394aecc9a03e7190834a1ff4ffc1fb9f02e6a1c3ef3f32520664",
-    "expires_in": "2016-07-17T16:46:08.724+09:00"
+    "expires": "2016-07-17T16:46:08.724+09:00"
 }
 ```
 
