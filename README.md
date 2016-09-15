@@ -85,8 +85,19 @@ GET /v1/auth/token
 
 #### Parameters
 
+`APIキー`と`シークレットキー`を`:(コロン)`で連結した文字列をBase64エンコードして利用します。
 ```
-Authorization: Basic <base64エンコードされた APIキー:シークレットキー>
+Authorization: Basic <'APIキー' + ':' + 'シークレットキー'と連結した文字列をBase64エンコードした値>
+```
+
+#### Sample code
+
+```sh
+#!/bin/sh
+APIKEY='xxxxx'　#APIキー
+SECRET='yyyyy'　#シークレットキー
+ENCODED=`echo ${APIKEY}:${SECRET} | base64`
+curl https://api.codenberg.io/v1/auth/token -H "Authorization: Basic ${ENCODED}"
 ```
 
 #### Response
@@ -97,20 +108,6 @@ Authorization: Basic <base64エンコードされた APIキー:シークレッ�
     "access_token": "2f9af46b0212394aecc9a03e7190834a1ff4ffc1fb9f02e6a1c3ef3f32520664",
     "expires": "2016-07-17T16:46:08.724+09:00"
 }
-```
-
-### 通常アクセス
-
-Authorization headerにアクセストークンを含めてアクセスします。
-
-```
-curl -H "Authorization: BEARER <OAUTH-TOKEN>" https://api.codenberg.io/v1/templates
-```
-
-以下のようにquery paramsに含めてアクセスすることもできます。
-
-```
-GET https://api.codenberg.io/v1/templates?access_token=<OAUTH-TOKEN>
 ```
 
 ## テンプレート
