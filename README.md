@@ -33,7 +33,7 @@ APIとのすべての通信にはHTTPSプロトコルを利用します。
 
 #### エンドポイント
 
-エンドポイントのベースURIは、`https://api.codeberg.io/v1/`です。このあとに、各エンドポイントのパスを記述してください。
+エンドポイントのベースURIは、`https://api.codenberg.io/v1/`です。このあとに、各エンドポイントのパスを記述してください。
 
 ##### エンドポイント一覧
 
@@ -104,13 +104,13 @@ Authorization: Basic <base64エンコードされた APIキー:シークレッ�
 Authorization headerにアクセストークンを含めてアクセスします。
 
 ```
-curl -H "Authorization: BEARER <OAUTH-TOKEN>" https://api.codeberg.io/v1/templates
+curl -H "Authorization: BEARER <OAUTH-TOKEN>" https://api.codenberg.io/v1/templates
 ```
 
 以下のようにquery paramsに含めてアクセスすることもできます。
 
 ```
-GET https://api.codeberg.io/v1/templates?access_token=<OAUTH-TOKEN>
+GET https://api.codenberg.io/v1/templates?access_token=<OAUTH-TOKEN>
 ```
 
 ## テンプレート
