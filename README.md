@@ -1025,7 +1025,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 0,
             "sub_total": 3124,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
             "total": 4484,
             "sheets": 1,
@@ -1076,7 +1076,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 0,
             "sub_total": 3124,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1089,7 +1089,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 0,
             "sub_total": 3124,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1101,7 +1101,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 0,
             "sub_total": 3124,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1113,7 +1113,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1125,7 +1125,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1137,7 +1137,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1149,7 +1149,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1161,7 +1161,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1173,7 +1173,7 @@ status: 200 OK
             "printing_fee": 3124,
             "system_usage_charge": 1,
             "sub_total": 3125,
-            "consanption_tax": 250,
+            "consumption_tax": 250,
             "delivery_fee": 1110,
 
             〜 省略 〜
@@ -1213,7 +1213,7 @@ status: 200 OK
     "printing_fee": 3124,
     "system_usage_charge": 1,
     "sub_total": 3125,
-    "consanption_tax": 250,
+    "consumption_tax": 250,
     "delivery_fee": 1110,
     "total": 4485,
     "sheets": 1,
@@ -1344,7 +1344,7 @@ status: 200 OK
     "printing_fee": 3124,
     "system_usage_charge": 0,
     "sub_total": 3124,
-    "consanption_tax": 250,
+    "consumption_tax": 250,
     "delivery_fee": 1110,
     "total": 4484,
     "sheets": 1,
