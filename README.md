@@ -1279,7 +1279,7 @@ JSON形式で送信してください。
 |---|---|---|---|
 |template_id|number|◯| テンプレートidを指定します。|
 |confirmation|string|◯| true or false。trueを設定すると実際の登録はおこなわれません。|
-|postal_code|number|◯|郵便番号。|
+|postal_code|string|◯|郵便番号。|
 |pref|string|◯|都道府県名。|
 |city|string|◯|市区町村。|
 |address_line1|string|◯|番地。|
