@@ -1,4 +1,4 @@
-# コーデンベルク APIリファレンス ver.0.5.0
+# コーデンベルク APIリファレンス ver.0.5.1
 
 印刷APIプラットフォーム「[コーデンベルク](https://codenberg.io/)」はさまざまなシステムと連携することができるように、WebAPIを公開しています。コーデンベルク APIを使って、印刷物の注文はもちろん、テンプレートの登録や可変領域の設定ができます。コーデンベルク APIは、RESTfulな設計なのでかんたんにシステム連携できます。
 
@@ -20,6 +20,8 @@
     - [注文一覧](#注文一覧)
     - [注文詳細](#注文詳細)
     - [注文作成-シングル](#注文作成-シングル)
+    - [注文キャンセル確認](#注文キャンセル確認)
+    - [注文キャンセル](#注文キャンセル)
 - [メディアライブラリ](#メディアライブラリ)
     - [メディア一覧](#メディア一覧)
     - [メディア詳細](#メディア詳細)
@@ -1275,21 +1277,21 @@ POST /v1/orders
 JSON形式で送信してください。
 
 
-|Name|Type|Require|Description|
-|---|---|---|---|
-|template_id|number|◯| テンプレートidを指定します。|
-|confirmation|string|◯| true or false。trueを設定すると実際の登録はおこなわれません。|
-|postal_code|string|◯|郵便番号。|
-|pref|string|◯|都道府県名。|
-|city|string|◯|市区町村。|
-|address_line1|string|◯|番地。|
-|address_line2|string||建物名。<br>(optional)|
-|organization|string||組織名。<br>(optional)|
-|name|string|◯|宛名|
-|tel|string|◯|連絡先電話番号|
-|custom_fields|array|可変領域が設定されている時、必須|可変領域を指定します。|
-|custom_fields.id|number||カスタムフィールドID|
-|custom_fields.value|string||設定値。テキスト or 画像ID|
+|Name|Type|Require|Length|Description|
+|---|---|---|---|---|
+|template_id|number|◯|| テンプレートidを指定します。|
+|confirmation|string|◯|| true or false。trueを設定すると実際の登録はおこなわれません。|
+|postal_code|string|◯||郵便番号。以下の形式に対応。<br>xxx<br>xxxxx<br>xxx-xx<br>xxxxxxx<br>xxx-xxxx|
+|pref|string|◯||都道府県名または都道府県id。|
+|city|string|◯|12桁|市区町村。|
+|address_line1|string|◯|16桁|番地。|
+|address_line2|string||16桁|建物名。<br>(optional)|
+|organization|string||16桁|組織名。<br>(optional)|
+|name|string|◯|16桁|宛名|
+|tel|string|◯||連絡先電話番号。以下の形式に対応。<br>xxxxxxxxxx<br>xxxxxxxxxxx<br>xx-xxxx-xxxx<br>xxx-xxx-xxxx<br>xxx-xxxx-xxxx<br>|
+|custom_fields|array|可変領域が設定されている時、必須||可変領域を指定します。|
+|custom_fields.id|number|||カスタムフィールドID|
+|custom_fields.value|string|||設定値。テキスト or 画像ID|
 
 <例>
 Content-type: application/json
@@ -1399,6 +1401,76 @@ Status Code | Description
 404 Not Found | Resource not found.
 422 Unprocessable Entity | 注文情報の形式が正しくありません
 
+#### その他
+
+拡張フィールドにて印刷文字列を指定することができますが、一部印刷することができない文字があることにご注意ください。詳しくは[印刷不能文字リスト](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E4%B8%8D%E8%83%BD%E6%96%87%E5%AD%97%E3%83%AA%E3%82%B9%E3%83%88)を参照して下さい。
+
+
+### 注文キャンセル確認
+
+注文キャンセルの可否情報を返します。<br>
+注文のキャンセルは印刷ステータスが「印刷待ち」まで受け付けています。<br>
+印刷ステータスの詳細は[「印刷ステータスについて」](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を参照して下さい。<br>
+
+#### Parameters
+```
+GET /v1/orders/:id/cancel_status
+```
+
+#### Response
+
+##### 成功時
+
+resultがtrueの時、その注文をキャンセルすることができます。
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "result": true,
+    "message": "キャンセルできます"
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+422 | 入力が受け付けられない場合
+
+### 注文キャンセル
+
+注文をキャンセルします。<br>
+注文のキャンセルは印刷ステータスが「印刷待ち」まで受け付けています。<br>
+印刷ステータスの詳細は[「印刷ステータスについて」](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を参照して下さい。<br>
+
+#### Parameters
+```
+PUT /v1/orders/:id/cancel
+```
+
+#### Response
+
+##### 成功時
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "result": true,
+    "message": "注文をキャンセルしました"
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+422 | 入力が受け付けられない場合
 
 
 ## メディアライブラリ
