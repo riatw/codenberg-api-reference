@@ -94,8 +94,8 @@ Authorization: Basic <'APIキー' + ':' + 'シークレットキー'と連結し
 
 ```sh
 #!/bin/sh
-APIKEY='xxxxx'　#APIキー
-SECRET='yyyyy'　#シークレットキー
+APIKEY='xxxxx' #APIキー
+SECRET='yyyyy' #シークレットキー
 ENCODED=`echo ${APIKEY}:${SECRET} | base64`
 curl https://api.codenberg.io/v1/auth/token -H "Authorization: Basic ${ENCODED}"
 ```
