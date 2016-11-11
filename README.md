@@ -1280,16 +1280,16 @@ JSON形式で送信してください。
 |Name|Type|Require|Length|Description|
 |---|---|---|---|---|
 |template_id|number|◯|| テンプレートidを指定します。|
-|confirmation|bool|◯|| true or false。trueを設定すると実際の登録はおこなわれません。|
+|confirmation|string|◯|| "true" or "false"。trueを設定すると実際の登録はおこなわれません。|
 |postal_code|Descriptionを参照|◯||郵便番号。以下の形式に対応。<br>xxx<br>xxxxx<br>xxx-xx<br>xxxxxxx<br>xxx-xxxx|
-|pref|string or number|◯||都道府県名または都道府県id。<br>指定できる値については下記の「都道府県については」を参照して下さい。|
+|pref|string or number|◯||都道府県名または都道府県id。<br>指定できる値については下記の「都道府県一覧」を参照して下さい。|
 |city|string|◯|12桁|市区町村。|
 |address_line1|string|◯|16桁|番地。|
 |address_line2|string||16桁|建物名。<br>(optional)|
 |organization|string||16桁|組織名。<br>(optional)|
 |name|string|◯|16桁|宛名|
 |tel|Descriptionを参照|◯||連絡先電話番号。以下の形式に対応。<br>xxxxxxxxxx<br>xxxxxxxxxxx<br>xx-xxxx-xxxx<br>xxx-xxx-xxxx<br>xxx-xxxx-xxxx<br>|
-|custom_fields|array(JSONの配列)|可変領域が設定されている時、必須||可変領域を指定します。<br>下記のリクエストパラメータ例も参考にして下さい。|
+|custom_fields|array|可変領域が設定されている時、必須||可変領域を指定します。<br>下記のリクエストパラメータ例も参考にして下さい。|
 |custom_fields.id|number|||カスタムフィールドID|
 |custom_fields.value|string of number|||テンプレートの可変領域にテキストを設定した時には文字列を指定して下さい。<br>可変領域に画像を設定した時には画像IDか画像ファイル名を指定して下さい。|
 
