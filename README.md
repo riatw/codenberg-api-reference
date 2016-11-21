@@ -1406,6 +1406,117 @@ Status Code | Description
 拡張フィールドにて印刷文字列を指定することができますが、一部印刷することができない文字があることにご注意ください。詳しくは[印刷不能文字リスト](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E4%B8%8D%E8%83%BD%E6%96%87%E5%AD%97%E3%83%AA%E3%82%B9%E3%83%88)を参照して下さい。
 
 
+### 配送先変更ステータス確認
+
+配送先変更の可否情報を返します。<br>
+注文の配送先変更は印刷ステータスが「印刷待ち」「印刷中」まで受け付けています。<br>
+印刷ステータスの詳細は[「印刷ステータスについて」](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を参照して下さい。<br>
+
+#### Parameters
+```
+GET /v1/orders/:order_group_id/order/:order_id/status
+```
+
+#### Response
+
+##### 成功時
+
+resultがtrueの時、その注文の配送先を変更することができます。<br>
+resultがfalseの時、その注文の配送先を変更することはできません。<br>
+falseの時はmessageに変更できない理由が示されます。
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "result": true,
+    "message": "配送先は変更可能です。"
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+422 | 入力が受け付けられない場合
+
+### 配送先変更
+
+配送先変更を行います。<br>
+配送先の変更は指定したパラメータのみ、行うことが可能です。指定できるパラメータは下記を参照して下さい。<br>
+パラメータ内の値の形式・制約などについては「注文作成-シングル」のパラメータと同様です。
+<br>
+注文の配送先変更は印刷ステータスが「印刷待ち」「印刷中」まで受け付けています。<br>
+印刷ステータスの詳細は[「印刷ステータスについて」](https://github.com/friday-night/codenberg-api-reference/wiki/%E5%8D%B0%E5%88%B7%E3%82%B9%E3%83%86%E3%83%BC%E3%82%BF%E3%82%B9%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6)を参照して下さい。<br>
+
+#### Parameters
+```
+POST /v1/orders/:order_group_id/order/:order_id
+```
+
+以下が住所変更で指定できるパラメータとなります。<br>
+各パラメータの形式・制約については「注文作成-シングル」のパラメータと同様です。
+
+|Name|Description|
+|---|---|
+|postal_code|郵便番号|
+|pref|都道府県|
+|city|市区町村|
+|address_line1|番地|
+|address_line2|建物名|
+|organization|組織名|
+|name|宛名|
+|tel|連絡先電話番号|
+
+<例>配送先の情報を全て更新
+
+```json
+{
+  "address_line1":"高輪3-25-29",
+  "address_line2":"The Site #07",
+  "city":"港区",
+  "name":"金曜武士",
+  "organization":"株式会社フライデーナイト",
+  "postal_code":"1080074",
+  "pref":"東京都",
+  "tel":"0364557650"
+}
+```
+
+<例>配送先の組織名だけを更新
+
+```json
+{
+  "organization":"株式会社フライデーナイト"
+}
+```
+
+#### Response
+
+##### 成功時
+
+指定された注文の配送先を変更します。
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "result": true,
+    "message": "配送先を変更しました。"
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+422 | 入力が受け付けられない場合
+
+
 ### 注文キャンセル確認
 
 注文キャンセルの可否情報を返します。<br>
