@@ -1111,7 +1111,7 @@ status: 200 OK
             "id": 7,
             "display_id": "BETA-000007",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1122,7 +1122,7 @@ status: 200 OK
             "id": 6,
             "display_id": "BETA-000006",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1133,7 +1133,7 @@ status: 200 OK
             "id": 5,
             "display_id": "BETA-000005",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1144,7 +1144,7 @@ status: 200 OK
             "id": 4,
             "display_id": "BETA-000004",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1155,7 +1155,7 @@ status: 200 OK
             "id": 3,
             "display_id": "BETA-000003",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1166,7 +1166,7 @@ status: 200 OK
             "id": 2,
             "display_id": "BETA-000002",
             "printing_fee": 3124,
-            "sub_total": 3125,
+            "sub_total": 3124,
             "consumption_tax": 250,
             "delivery_fee": 1110,
 
@@ -1205,10 +1205,10 @@ status: 200 OK
     "id": 1,
     "display_id": "BETA-000001",
     "printing_fee": 3124,
-    "sub_total": 3125,
+    "sub_total": 3124,
     "consumption_tax": 250,
     "delivery_fee": 1110,
-    "total": 4485,
+    "total": 4484,
     "sheets": 1,
     "total_number": 1,
     "orders": [
