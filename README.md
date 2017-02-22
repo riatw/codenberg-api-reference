@@ -1599,6 +1599,10 @@ Status Code | Description
 
 登録されているメディアの一覧を返します。
 
+```
+GET /v1/media
+```
+
 #### Parameters
 
 | Name  | Type | Description |
