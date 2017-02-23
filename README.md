@@ -631,6 +631,145 @@ Status Code | Description
 --- | ---
 400 | 入力が受け付けられない場合
 
+### プレビュー生成リクエスト
+
+指定したテンプレートのプレビューの生成をリクエストします。
+
+```
+POST /v1/template_previews
+```
+
+#### Parameters
+
+テンプレートIDとカスタムフィールドの値をJSON形式の配列として送信します。
+
+Content-Type: application/json
+
+```json
+{
+	"template_id": 2,
+	"custom_fields":[
+		{
+			"id": "4",
+			"value": "テキストプレビュー1"
+		},
+		{
+			"id": "5",
+			"value": "テキストプレビュー2"
+		},
+		{
+			"id": "6",
+			"value": "テキストプレビュー3"
+		},
+		{
+			"id": "5",
+			"value": "1"
+		}
+	]
+}
+```
+
+#### Response
+
+##### 成功時
+
+```
+status: 202 Accepted
+```
+
+```json
+{
+    "id": 5,
+    "template_id": 2,
+    "generated": false,
+    "images": [],
+    "error": null
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+403 | 認証に失敗した場合
+404 | テンプレートが存在しない場合
+422 | パラメータに不備がある場合
+
+### プレビュー取得
+
+指定したプレビューを取得します。
+
+```
+GET /v1/template_previews/:template_preview_id
+```
+
+#### Parameters
+
+ありません。
+
+#### Response
+
+##### 成功時
+
+###### プレビュー画像生成中
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "id": 5,
+    "template_id": 2,
+    "generated": false,
+    "images": [],
+    "error": null
+}
+```
+
+###### プレビュー画像生成完了
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "id": 5,
+    "template_id": 2,
+    "generated": true,
+    "images": [
+        "https://codenberg.io/uploads/tmp/pt/120160717-7-hbr6gn_0.jpg"
+    ],
+    "error": null
+}
+```
+
+###### プレビュー画像生成エラー
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "id": 5,
+    "template_id": 2,
+    "generated": false,
+    "images": [],
+    "error": {
+        "message": "プレビューの生成に失敗しました。"
+    }
+}
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+403 | 認証に失敗した場合
+404 | プレビューが存在しない場合
+
 ## フォーマット
 
 コーデンベルクが用意しているフォーマットの情報を返します。用紙サイズや印刷費、用紙の種類などを取得できます。
