@@ -571,66 +571,6 @@ Status Code | Description
 
 ### プレビュー
 
-指定したテンプレートのプレビューを返します。
-
-```
-POST /v1/templates/:template_id/preview
-```
-
-#### Parameters
-
-カスタムフィールドの値をJSON形式の配列として送信します。
-
-Content-Type: application/json
-
-```json
-{
-	"custom_fields":[
-		{
-			"id": "4",
-			"value": "テキストプレビュー1"
-		},
-		{
-			"id": "5",
-			"value": "テキストプレビュー2"
-		},
-		{
-			"id": "6",
-			"value": "テキストプレビュー3"
-		},
-		{
-			"id": "5",
-			"value": "1"
-		}
-	]
-}
-```
-
-#### Response
-
-作成された画像の配列が表示されます。
-
-##### 成功時
-
-```
-status: 200 OK
-```
-
-```json
-{
-    "images": [
-        "https://codenberg.io/uploads/tmp/pt/120160717-7-hbr6gn_0.jpg"
-    ]
-}
-
-```
-
-##### 失敗時
-
-Status Code | Description
---- | ---
-400 | 入力が受け付けられない場合
-
 ### プレビュー生成リクエスト
 
 指定したテンプレートのプレビューの生成をリクエストします。
@@ -641,13 +581,23 @@ POST /v1/template_previews
 
 #### Parameters
 
-テンプレートIDとカスタムフィールドの値をJSON形式の配列として送信します。
+Json形式で送信します。
 
+Name|Type|Require|Description
+---|---|---|---
+template_id|string|◯|テンプレートID
+custom_fields|array|◯|可変領域を指定します。
+custom_fields.id|string|◯|カスタムフィールドID
+custom_fields.value|string|◯|テンプレートの可変領域にテキストを設定した時には文字列を指定して下さい。<br>可変領域に画像を設定した時には画像IDか画像ファイル名を指定して下さい。
+page|string||プレビューを生成するページを指定します。(0スタートのIndex値)
+
+##### Example
 Content-Type: application/json
 
 ```json
 {
-	"template_id": 2,
+	"template_id": "7723acace5d6",
+  "page": 0,
 	"custom_fields":[
 		{
 			"id": "4",
@@ -680,7 +630,7 @@ status: 202 Accepted
 ```json
 {
     "id": 5,
-    "template_id": 2,
+    "template_id": "7723acace5d6",
     "generated": false,
     "images": [],
     "error": null
@@ -720,7 +670,7 @@ status: 200 OK
 ```json
 {
     "id": 5,
-    "template_id": 2,
+    "template_id": "7723acace5d6",
     "generated": false,
     "images": [],
     "error": null
@@ -736,7 +686,7 @@ status: 200 OK
 ```json
 {
     "id": 5,
-    "template_id": 2,
+    "template_id": "7723acace5d6",
     "generated": true,
     "images": [
         "https://codenberg.io/uploads/tmp/pt/120160717-7-hbr6gn_0.jpg"
@@ -754,7 +704,7 @@ status: 200 OK
 ```json
 {
     "id": 5,
-    "template_id": 2,
+    "template_id": "7723acace5d6",
     "generated": false,
     "images": [],
     "error": {
@@ -769,6 +719,72 @@ Status Code | Description
 --- | ---
 403 | 認証に失敗した場合
 404 | プレビューが存在しない場合
+
+
+#### [Deprecated] プレビュー同期型
+***このエンドポイントは後日廃止予定です**
+
+指定したテンプレートのプレビューを返します。
+
+```
+POST /v1/templates/:template_id/preview
+```
+
+#### Parameters
+
+カスタムフィールドの値をJSON形式の配列として送信します。
+
+Content-Type: application/json
+
+```json
+{
+  "custom_fields":[
+    {
+      "id": "4",
+      "value": "テキストプレビュー1"
+    },
+    {
+      "id": "5",
+      "value": "テキストプレビュー2"
+    },
+    {
+      "id": "6",
+      "value": "テキストプレビュー3"
+    },
+    {
+      "id": "5",
+      "value": "1"
+    }
+  ]
+}
+```
+
+#### Response
+
+作成された画像の配列が表示されます。
+
+##### 成功時
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "images": [
+        "https://codenberg.io/uploads/tmp/pt/120160717-7-hbr6gn_0.jpg"
+    ]
+}
+
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+400 | 入力が受け付けられない場合
+
+
 
 ## フォーマット
 
@@ -1409,7 +1425,7 @@ JSON形式で送信してください。
 
 |Name|Type|Require|Length|Description|
 |---|---|---|---|---|
-|template_id|number|◯|| テンプレートidを指定します。|
+|template_id|string|◯|| テンプレートidを指定します。|
 |confirmation|string|◯|| "true" or "false"。trueを設定すると実際の登録はおこなわれません。|
 |postal_code|Descriptionを参照|◯||郵便番号。以下の形式に対応。<br>xxx<br>xxxxx<br>xxx-xx<br>xxxxxxx<br>xxx-xxxx|
 |pref|string or number|◯||都道府県名または都道府県id。<br>指定できる値については下記の「都道府県一覧」を参照して下さい。|
