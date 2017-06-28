@@ -1762,7 +1762,8 @@ GET /v1/media
 
 | Name  | Type | Description |
 | ------------- | ------------- | ------------- |
-| q | string | 指定して文字でファイル名を対象に検索します。 |
+| q | string | 指定した文字でファイル名を対象に検索します。 |
+| folder_id | string | 検索するフォルダを指定します。rootを指定した場合、フォルダに入っていないメディアを検索。 |
 | sort | string | 並び順の基準とする項目を指定します。id/name/created_atが指定可能。<br>Default:id. |
 | direction | string | 項目の並び順を指定します。asc(昇順)/desc(降順)<br>Default: desc |
 | per_page | number | 1ページあたりの取得項目数。最大:50件<br>Default: 10. |
@@ -1865,6 +1866,95 @@ Status Code | Description
 --- | ---
 400 | 入力が受け付けられない場合
 
+### メディア登録
+
+新しくメディアを登録します。
+
+```
+POST /v1/media
+Content-Type multipart/form-data
+```
+
+#### Parameters
+
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| name | string | ファイル名。任意。 |
+| folder_id | string | フォルダ。任意 |
+| file | file | メディアファイル。必須 |
+
+#### Response
+
+##### 成功時
+
+```
+status: 201 Created
+```
+
+```json
+{
+    "id": 2,
+    "name": "100829_1508-01.jpg",
+    "file": "http://codenberg.io/uploads/medium/file/2/9989faa8-653e-4917-a680-b0b92868ef82.jpg",
+    "thumb": {
+        "default": "http://codenberg.io/uploads/medium/file/2/thumb_9989faa8-653e-4917-a680-b0b92868ef82.jpg",
+        "square": "http://codenberg.io/uploads/medium/file/2/thumb_square_9989faa8-653e-4917-a680-b0b92868ef82.jpg"
+    },
+    "created_at": "2016-07-16T17:48:22.000+09:00"
+}
+
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+400 | 入力が受け付けられない場合
+
+### メディア更新
+
+メディアデータを更新します。
+
+```
+PATCH /v1/media/:id
+Content-Type multipart/form-data
+```
+
+#### Parameters
+
+| Name  | Type | Description |
+| ------------- | ------------- | ------------- |
+| name | string | ファイル名 |
+| folder_id | string | フォルダ |
+| file | file | メディアファイル |
+
+#### Response
+
+##### 成功時
+
+```
+status: 200 OK
+```
+
+```json
+{
+    "id": 2,
+    "name": "100829_1508-01.jpg",
+    "file": "http://codenberg.io/uploads/medium/file/2/9989faa8-653e-4917-a680-b0b92868ef82.jpg",
+    "thumb": {
+        "default": "http://codenberg.io/uploads/medium/file/2/thumb_9989faa8-653e-4917-a680-b0b92868ef82.jpg",
+        "square": "http://codenberg.io/uploads/medium/file/2/thumb_square_9989faa8-653e-4917-a680-b0b92868ef82.jpg"
+    },
+    "created_at": "2016-07-16T17:48:22.000+09:00"
+}
+
+```
+
+##### 失敗時
+
+Status Code | Description
+--- | ---
+400 | 入力が受け付けられない場合
 
 ## 都道府県一覧
 
